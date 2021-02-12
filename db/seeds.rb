@@ -6,13 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Player.get_players_info.each do |player|
-    print "yo"
+    print "player: " 
+    print player
     begin
         name = player.keys[0]
+        print "name: " + name
         war = player[name]["war"]
         image = player[name]["image"]
         if player[name]["player_type"] == "Pitcher"
-            print "pitcher"
             wins =  player[name]["wins"]
             losses = player[name]["losses"]
             strikeouts =  player[name]["strikeouts"]
@@ -21,7 +22,6 @@ Player.get_players_info.each do |player|
             saves = player[name]["saves"]
             new_player = Player.create(role: "pitcher", name: name, war: war, image: image, wins: wins, losses: losses, strikeouts: strikeouts, era: era, ip: ip, saves: saves)
         elsif player[name]["player_type"] == "Hitter"
-             print "hitter"
             hits = player[name]["hits"]
             avg = player[name]["avg"]
             hr = player[name]["hr"]

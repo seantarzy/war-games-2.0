@@ -54,11 +54,10 @@ class Player < ApplicationRecord
                     hitter_total_rbi = player_secondary_stats.split("Runs Scored")[1].split('</div>')[1].split('RBI')[1][9..-6]
                     hitter_total_stolen_bases = player_secondary_stats.split("Runs Scored")[1].split('</div>')[2].split('SB')[1][9..-6] 
                     hitter_offensive_war = page.css("tr[data-stat='WAR_off']")
-                    puts hitter_offensive_war
                       end
-                player_name = page.css("h1[itemprop='name']").to_s
+                player_name =  page.css("#info").css("h1")[0].css("span")[0].text
                 player_image = page.css('img')[1].to_s.split('onerror')[0][10..-12]
-                new_player_name[player_name.split("<")[1].split(">")[1]] = each_player_hash
+                new_player_name[player_name] = each_player_hash
                 each_player_hash["player_type"] = player_type
                 each_player_hash["war"] = war
                 each_player_hash["image"] = player_image
