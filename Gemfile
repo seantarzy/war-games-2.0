@@ -7,7 +7,6 @@ ruby '2.7.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use sqlite3 as the database for Active Record
 # group :development, :test do # <<<< :development, not devlopment
-  gem 'sqlite3',  '~>1.3.6'
 # end# Use Puma as the app server
 gem 'puma', '~> 4.1'
 gem 'nokogiri'
@@ -27,8 +26,7 @@ gem 'rack-cors'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
